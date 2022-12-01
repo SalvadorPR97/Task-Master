@@ -1,0 +1,37 @@
+<table class="table is-striped">
+    <tr>
+      <th>Nombre</th>
+      <th>Prioridad</th>
+      <th>Fuera de plazo</th>
+      <th>Proyecto</th>
+      <th>Color</th>
+    </tr>
+    
+      {% for tarea in tareas %}
+        <tr>
+          <td class="{% if tarea.priority == 'H' %}tarea-urgente{% endif %}">
+            {{ tarea.name }}
+          </td>
+          <td>{{ tarea.priority }}</td>
+          <td>
+            {% if tarea.is_due %}
+              <b class="tag is-danger is-rounded" >Fuera de plazo</b>
+            {% else %}
+              <i>N/A</i>
+            {% endif %}
+          </td>
+          <td>
+            {% comment %}
+            {% if tarea.project %}
+              <b>{{ tarea.project.code }}</b>
+            {% else %}
+              <i>-</i>
+            {% endif %}
+            {% endcomment %}
+          </td>
+          <td>
+            {{ tarea.color }}
+          </td>
+        </tr>
+      {% endfor%}
+  </table>

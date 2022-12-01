@@ -1,0 +1,20 @@
+{% extends 'tasks/base.html' %}
+
+{% block titulo %}
+Proyecto {{ project}}
+{% endblock titulo %}
+
+{% block content %}
+
+<h3>{{ project.code }}</h3>
+<h4>{{ project.name }}</h4>
+
+<p>{{ project.description }}</p>
+<p>Inicio el {{ project.start_date }}</p>
+<p>Final previsto para el {{ project.end_date }}</p>
+
+{{ project.task_set.count }}
+
+{% include 'tasks/includes/task_table.html' %}
+
+{% endblock content %}

@@ -1,0 +1,44 @@
+{% extends 'tasks/base.html' %}
+
+{% block title %}
+Buscador de tareas
+{% endblock title %}
+
+{% block content %}
+
+<form method="POST" action="{% url 'buscar' %}">
+{% csrf_token %}
+
+<div class="field">
+  <label class="label">{{ form.query.label }}</label>
+  <div class="control">
+    {{ form.query }}
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">{{ form.priority.label }}</label>
+  <div class="control">
+    {{ form.priority }}
+  </div>
+</div>
+
+<div class="field">
+  <div class="control">
+    <button class="button is-link">Buscar</button>
+  </div>
+</div>
+
+</form>
+
+{% if num_tareas > 0 %}
+<h3 class="subtitle">
+    Encontradas <span class="label is-warning">
+        {{ num_tareas }}
+    </span>
+    tareas
+</h3>
+{% include 'tasks/includes/task_table.html' %}
+{% endif %}
+
+{% endblock content %}

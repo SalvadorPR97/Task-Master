@@ -1,0 +1,10 @@
+{% extends 'tasks/base.html' %}
+
+{% block content %}
+
+<h2 style="font-size: 40px;">Tareas</h2>   
+<a href="{% url 'crear_tareas' %}">Crear tareas por defecto</a>
+<hr> 
+
+{% include 'tasks/includes/task_table.html' %}
+{% endblock content %}

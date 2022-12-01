@@ -1,0 +1,21 @@
+{% load static %}<!doctype html>
+<html>
+  <head>
+    <title> 
+        {% block titulo %} Gestor de tareas {% endblock titulo%}
+    </title>
+    <link rel="stylesheet" 
+          href="{% static 'tasks/css/bulma.css' %}">
+  </head>
+  <body>
+
+    {% include 'tasks/includes/navbar.html' %}
+    <h1>TaskMaster</h1>
+    <h3>Gestión de tareas fácil</h3>
+
+{% block content %} 
+{% endblock content %}
+
+    <script src="{% static 'tasks/js/tasks.js' %}"></script>
+  </body>
+</html>

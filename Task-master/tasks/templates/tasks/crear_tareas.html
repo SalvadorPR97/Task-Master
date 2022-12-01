@@ -1,0 +1,17 @@
+{% extends 'tasks/base.html' %} 
+
+{% block content %}
+
+<form action="{% url 'crear_tareas' %}" method="POST">
+    {% csrf_token %}
+    <table class="table">
+    
+        {{ form.as_table }}
+    
+    </table>
+      <p>
+        <input type="submit" name="ok" value="Enviar">
+      </p>
+    </form>
+
+{% endblock content %}
